@@ -12,7 +12,7 @@ public class LeagueRankingModelRowMapper implements RowMapper {
         LeagueRanking leagueRanking = new LeagueRanking();
         leagueRanking.setId(rs.getInt("id"));
         leagueRanking.setName(rs.getString("team"));
-        leagueRanking.setPoints(rs.getString("points"));
+        leagueRanking.setPoints(Integer.parseInt(rs.getString("points")));
         return leagueRanking;
     }
 }

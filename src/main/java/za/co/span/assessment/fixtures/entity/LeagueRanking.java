@@ -3,7 +3,8 @@ package za.co.span.assessment.fixtures.entity;
 public class LeagueRanking {
     private long id;
     private String name;
-    private String points;
+    private int points;
+    private int position;
 
     public long getId() {
         return id;
@@ -21,11 +22,19 @@ public class LeagueRanking {
         this.name = name;
     }
 
-    public String getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void setPoints(String points) {
+    public void setPoints(int points) {
         this.points = points;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

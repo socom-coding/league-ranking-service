@@ -14,6 +14,7 @@ import za.co.span.assessment.utils.AllocatePoints;
 import za.co.span.assessment.utils.MapStringToObject;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -52,7 +53,7 @@ public class DefaultFixturesService implements IDefaultFixturesService {
                 resultsRepository.insertPoints(team);
             } else {
                 team.setId(leagueRanking.get(0).getId());
-                team.setPoints(Integer.parseInt(leagueRanking.get(0).getPoints()) + team.getPoints());
+                team.setPoints(leagueRanking.get(0).getPoints() + team.getPoints());
                 resultsRepository.updatePoints(team);
             }
         }
@@ -60,6 +61,24 @@ public class DefaultFixturesService implements IDefaultFixturesService {
 
     @Override
     public List<LeagueRanking> findAll() {
-        return resultsRepository.findAll();
+        List<LeagueRanking> leagueRankings = new ArrayList<>();
+        leagueRankings = resultsRepository.findAll();
+
+        leagueRankings.sort(Comparator.comparing(LeagueRanking::getPoints).reversed().thenComparing(LeagueRanking::getName));
+
+        int position = 1;
+
+        leagueRankings.get(0).setPosition(position);
+
+        for (int i = 1; i < leagueRankings.size(); i++) {
+            if (leagueRankings.get(i).getPoints() == leagueRankings.get(i - 1).getPoints()) {
+                leagueRankings.get(i).setPosition(leagueRankings.get(i - 1).getPosition());
+                position++;
+            } else {
+                leagueRankings.get(i).setPosition(++position);
+            }
+        }
+
+        return leagueRankings;
     }
 }

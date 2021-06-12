@@ -12,15 +12,14 @@ public class MapStringToObject {
         String team1 = string.split(",")[0].trim();
         String team2 = string.split(",")[1].trim();
 
-        CharMatcher charMatcherLetter = CharMatcher.javaLetter();
         CharMatcher charMatcherDigit = CharMatcher.javaDigit();
 
         Team teamModel1 = new Team();
-        teamModel1.setName(charMatcherLetter.retainFrom(team1));
+        teamModel1.setName(team1.replaceAll("\\d", ""));
         teamModel1.setScore(Integer.parseInt(charMatcherDigit.retainFrom(team1)));
 
         Team teamModel2 = new Team();
-        teamModel2.setName(charMatcherLetter.retainFrom(team2));
+        teamModel2.setName(team2.replaceAll("\\d", ""));
         teamModel2.setScore(Integer.parseInt(charMatcherDigit.retainFrom(team2)));
 
         MatchResult matchResult = new MatchResult();
