@@ -30,7 +30,7 @@ public class AllocatePoints {
         }
     }
 
-    public void updateTeamPoints(){
+    public void updateTeamPoints() {
 
     }
 }

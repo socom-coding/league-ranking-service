@@ -43,12 +43,12 @@ public class DefaultFixturesService implements IDefaultFixturesService {
 
             List<LeagueRanking> leagueRanking = new ArrayList<>();
 
-            try{
-                 leagueRanking = resultsRepository.findTeam(team.getName());
-            } catch (Exception e){
+            try {
+                leagueRanking = resultsRepository.findTeam(team.getName());
+            } catch (Exception e) {
                 log.error(String.valueOf(e));
             }
-            if(leagueRanking.isEmpty()){
+            if (leagueRanking.isEmpty()) {
                 resultsRepository.insertPoints(team);
             } else {
                 team.setId(leagueRanking.get(0).getId());

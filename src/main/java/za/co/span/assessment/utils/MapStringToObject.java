@@ -7,7 +7,7 @@ import za.co.span.assessment.fixtures.entity.Team;
 
 @Component
 public class MapStringToObject {
-    public MatchResult mapResult(String string){
+    public MatchResult mapResult(String string) {
 
         String team1 = string.split(",")[0].trim();
         String team2 = string.split(",")[1].trim();

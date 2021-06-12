@@ -29,14 +29,14 @@ public class DefaultFixturesController {
 
     @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/result/{result}", method = RequestMethod.POST)
-    public ResponseEntity captureResult(@PathVariable("result") String result){
+    public ResponseEntity captureResult(@PathVariable("result") String result) {
         iDefaultFixtures.processResult(result);
         return new ResponseEntity<>("Results Captured", HttpStatus.CREATED);
     }
 
     @Secured("ROLE_GUEST")
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    public ResponseEntity ranking(){
+    public ResponseEntity ranking() {
         iDefaultFixtures.findAll();
         return new ResponseEntity<>(iDefaultFixtures.findAll(), HttpStatus.OK);
     }

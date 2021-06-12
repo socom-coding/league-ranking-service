@@ -41,9 +41,9 @@ public class ResultsRepository {
 
     public List<LeagueRanking> findTeam(String team) {
 
-        try{
-            return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'",  new LeagueRankingModelRowMapper());
-        } catch(Exception e){
+        try {
+            return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'", new LeagueRankingModelRowMapper());
+        } catch (Exception e) {
             log.error(String.valueOf(e));
         }
         return null;
@@ -57,11 +57,10 @@ public class ResultsRepository {
     }
 
     public int updatePoints(Team team) {
-        return jdbcTemplate.update("update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'" );
+        return jdbcTemplate.update("update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'");
     }
 
     public List<LeagueRanking> findAll() {
         return jdbcTemplate.query("select * from ranking", new LeagueRankingModelRowMapper());
     }
-
 }
