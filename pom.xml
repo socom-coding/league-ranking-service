@@ -49,6 +49,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -83,6 +84,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- CHUCK NORRIS FOR ACTUATOR -->
+        <dependency>
+            <groupId>guru.springframework</groupId>
+            <artifactId>chuck-norris-for-actuator</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -90,6 +98,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

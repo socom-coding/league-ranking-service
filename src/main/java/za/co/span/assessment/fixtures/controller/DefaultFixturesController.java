@@ -16,23 +16,27 @@ import za.co.span.assessment.fixtures.service.IDefaultFixturesService;
 @RequestMapping("/fixtures")
 public class DefaultFixturesController {
 
+    //TODO: ADD/Instrumentation Metrics - Counter - Gauge - Tracing
+
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
-    @Autowired
     private IDefaultFixturesService iDefaultFixtures;
+
+    @Autowired
+    public DefaultFixturesController(IDefaultFixturesService iDefaultFixtures) {
+        this.iDefaultFixtures = iDefaultFixtures;
+    }
 
     @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/result/{result}", method = RequestMethod.POST)
-    public ResponseEntity enterResult(@PathVariable("result") String result){
-        log.info("About to capture result: {} ", result);
-        iDefaultFixtures.add(result);
-        return new ResponseEntity<>("Hallo World", HttpStatus.OK);
+    public ResponseEntity captureResult(@PathVariable("result") String result){
+        iDefaultFixtures.processResult(result);
+        return new ResponseEntity<>("Results Captured", HttpStatus.CREATED);
     }
 
     @Secured("ROLE_GUEST")
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    public ResponseEntity enterResult(){
-        log.info("Retrieving ranking table");
+    public ResponseEntity ranking(){
         iDefaultFixtures.findAll();
         return new ResponseEntity<>(iDefaultFixtures.findAll(), HttpStatus.OK);
     }
