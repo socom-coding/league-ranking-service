@@ -9,16 +9,16 @@ import za.co.span.assessment.fixtures.entity.LeagueRanking;
 import za.co.span.assessment.fixtures.entity.MatchResult;
 import za.co.span.assessment.fixtures.entity.Team;
 import za.co.span.assessment.fixtures.repository.ResultsRepository;
-import za.co.span.assessment.fixtures.service.IDefaultFixturesService;
 import za.co.span.assessment.utils.AllocatePoints;
 import za.co.span.assessment.utils.MapStringToObject;
+import za.co.span.assessment.fixtures.service.DefaultFixturesService;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 @Service
-public class DefaultFixturesService implements IDefaultFixturesService {
+public class DefaultFixturesServiceImpl implements DefaultFixturesService {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
@@ -27,7 +27,7 @@ public class DefaultFixturesService implements IDefaultFixturesService {
     private AllocatePoints allocatePoints;
 
     @Autowired
-    public DefaultFixturesService(ResultsRepository resultsRepository, MapStringToObject mapStringToObject, AllocatePoints allocatePoints) {
+    public DefaultFixturesServiceImpl(ResultsRepository resultsRepository, MapStringToObject mapStringToObject, AllocatePoints allocatePoints) {
         this.resultsRepository = resultsRepository;
         this.mapStringToObject = mapStringToObject;
         this.allocatePoints = allocatePoints;
