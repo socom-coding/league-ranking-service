@@ -20,7 +20,7 @@ create table points
     primary key (id)
 );
 
---Team Points Table
+--Team Ranking Table
 create table ranking
 (
     id integer not null auto_increment,
