@@ -29,8 +29,4 @@ public class AllocatePoints {
             matchResult.getTeams().get(1).setPoints(Integer.parseInt(win));
         }
     }
-
-    public void updateTeamPoints() {
-
-    }
 }

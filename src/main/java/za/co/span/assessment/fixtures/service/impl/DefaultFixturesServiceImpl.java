@@ -68,6 +68,7 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
 
         int position = 1;
 
+        //TODO: cater for empty result
         leagueRankings.get(0).setPosition(position);
 
         for (int i = 1; i < leagueRankings.size(); i++) {
