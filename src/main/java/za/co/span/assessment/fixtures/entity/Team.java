@@ -2,9 +2,14 @@ package za.co.span.assessment.fixtures.entity;
 
 public class Team {
     private long id;
-    private String name;
-    private int score;
+    private final String name;
+    private final int score;
     private int points;
+
+    public Team(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
 
     public long getId() {
         return id;
@@ -18,16 +23,8 @@ public class Team {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public int getPoints() {

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 @Profile("dev")
 public class HttpTraceRepositoryConfig {
 
-    //TODO: Disable for production
+    //TODO: Disable for production, assign to dev profile.
 
     /**
      * The default-implementation stores the captured data in memory.

@@ -15,13 +15,8 @@ public class MapStringToObject {
 
         CharMatcher charMatcherDigit = CharMatcher.javaDigit();
 
-        Team teamModel1 = new Team();
-        teamModel1.setName(team1.replaceAll("\\d", ""));
-        teamModel1.setScore(Integer.parseInt(charMatcherDigit.retainFrom(team1)));
-
-        Team teamModel2 = new Team();
-        teamModel2.setName(team2.replaceAll("\\d", ""));
-        teamModel2.setScore(Integer.parseInt(charMatcherDigit.retainFrom(team2)));
+        Team teamModel1 = new Team(team1.replaceAll("\\d", ""), Integer.parseInt(charMatcherDigit.retainFrom(team1)));
+        Team teamModel2 = new Team(team2.replaceAll("\\d", ""), Integer.parseInt(charMatcherDigit.retainFrom(team2)));
 
         MatchResult matchResult = new MatchResult();
         matchResult.getTeams().add(teamModel1);

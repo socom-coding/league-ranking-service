@@ -9,10 +9,8 @@ import java.sql.SQLException;
 public class LeagueRankingModelRowMapper implements RowMapper {
     @Override
     public LeagueRanking mapRow(ResultSet rs, int rowNum) throws SQLException {
-        LeagueRanking leagueRanking = new LeagueRanking();
-        leagueRanking.setId(rs.getInt("id"));
-        leagueRanking.setName(rs.getString("team"));
-        leagueRanking.setPoints(Integer.parseInt(rs.getString("points")));
+        LeagueRanking leagueRanking = new LeagueRanking(rs.getInt("id"),
+                rs.getString("team"), Integer.parseInt(rs.getString("points")));
         return leagueRanking;
     }
 }
