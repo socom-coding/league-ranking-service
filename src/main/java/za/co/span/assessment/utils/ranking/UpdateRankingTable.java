@@ -1,4 +1,4 @@
-package za.co.span.assessment.utils.points;
+package za.co.span.assessment.utils.ranking;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -8,7 +8,7 @@ import za.co.span.assessment.fixtures.entity.LeagueRanking;
 import za.co.span.assessment.fixtures.entity.MatchResult;
 import za.co.span.assessment.fixtures.repository.ResultsRepository;
 import za.co.span.assessment.fixtures.service.DefaultRepositoryService;
-import za.co.span.assessment.utils.points.UpdateRankingTable;
+import za.co.span.assessment.utils.ranking.UpdateRankingTable;
 import za.co.span.assessment.utils.ranking.OrderRankingTable;
 
 import java.util.List;

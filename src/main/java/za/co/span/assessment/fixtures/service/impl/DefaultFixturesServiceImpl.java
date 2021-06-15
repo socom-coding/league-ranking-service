@@ -11,8 +11,6 @@ import za.co.span.assessment.fixtures.service.DefaultFixturesService;
 import za.co.span.assessment.fixtures.service.DefaultRepositoryService;
 import za.co.span.assessment.utils.mapper.MapStringToObject;
 import za.co.span.assessment.utils.points.AllocateMatchPoints;
-import za.co.span.assessment.utils.points.UpdateRankingTable;
-import za.co.span.assessment.utils.ranking.OrderRankingTable;
 
 import java.util.List;
 
