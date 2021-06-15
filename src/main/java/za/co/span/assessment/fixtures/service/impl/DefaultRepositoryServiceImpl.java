@@ -32,7 +32,6 @@ public class DefaultRepositoryServiceImpl implements DefaultRepositoryService {
     public void captureResults(MatchResult mappedResult) {
         resultsRepository.insertResult(mappedResult);
         resultsRepository.insertFixtures(mappedResult);
-
     }
 
     @Override
