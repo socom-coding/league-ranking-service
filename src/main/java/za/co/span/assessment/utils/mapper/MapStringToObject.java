@@ -1,4 +1,4 @@
-package za.co.span.assessment.utils;
+package za.co.span.assessment.utils.mapper;
 
 import com.google.common.base.CharMatcher;
 import org.springframework.stereotype.Component;
@@ -7,6 +7,7 @@ import za.co.span.assessment.fixtures.entity.Team;
 
 @Component
 public class MapStringToObject {
+
     public MatchResult mapResult(String string) {
 
         String team1 = string.split(",")[0].trim();

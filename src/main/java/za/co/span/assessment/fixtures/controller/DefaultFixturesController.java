@@ -20,18 +20,18 @@ public class DefaultFixturesController {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
-    private DefaultFixturesService iDefaultFixtures;
+    private DefaultFixturesService defaultFixtures;
 
     @Autowired
-    public DefaultFixturesController(DefaultFixturesService iDefaultFixtures) {
-        this.iDefaultFixtures = iDefaultFixtures;
+    public DefaultFixturesController(DefaultFixturesService defaultFixtures) {
+        this.defaultFixtures = defaultFixtures;
     }
 
     @Secured("ROLE_ADMIN")
     @ResponseBody
     @RequestMapping(value = "/result/{result}", method = RequestMethod.POST)
     public ResponseEntity<String> captureResult(@PathVariable("result") String result) {
-        iDefaultFixtures.processResult(result);
+        defaultFixtures.processResult(result);
         return new ResponseEntity("Results Captured", HttpStatus.CREATED);
     }
 
@@ -39,7 +39,6 @@ public class DefaultFixturesController {
     @ResponseBody
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
     public ResponseEntity<List<LeagueRanking>> ranking() {
-        iDefaultFixtures.findAll();
-        return new ResponseEntity<>(iDefaultFixtures.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(defaultFixtures.getOrderedRankingTable(), HttpStatus.OK);
     }
 }

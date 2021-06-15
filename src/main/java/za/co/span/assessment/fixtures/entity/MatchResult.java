@@ -1,5 +1,7 @@
 package za.co.span.assessment.fixtures.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 

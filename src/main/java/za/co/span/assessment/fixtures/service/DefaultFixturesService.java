@@ -7,5 +7,5 @@ import java.util.List;
 public interface DefaultFixturesService {
     void processResult(String matchResult);
 
-    List<LeagueRanking> findAll();
+    List<LeagueRanking> getOrderedRankingTable();
 }
