@@ -6,29 +6,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
 import za.co.span.assessment.fixtures.entity.MatchResult;
-import za.co.span.assessment.fixtures.repository.ResultsRepository;
 
 @Component
 public class AllocateMatchPoints {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
-    private ResultsRepository resultsRepository;
-
     @Value("${league.points.win}")
-    private String win;
+    String win;
 
     @Value("${league.points.loose}")
-    private String loose;
+    String loose;
 
     @Value("${league.points.draw}")
-    private String draw;
+    String draw;
 
-    public AllocateMatchPoints(ResultsRepository resultsRepository) {
-        this.resultsRepository = resultsRepository;
-    }
-
-    public void applyRules(MatchResult matchResult) {
+    public MatchResult applyRules(MatchResult matchResult) {
 
         if (matchResult.getTeams().get(0).getScore() == matchResult.getTeams().get(1).getScore()) {
             matchResult.getTeams().get(0).setPoints(Integer.parseInt(draw));
@@ -40,5 +33,6 @@ public class AllocateMatchPoints {
             matchResult.getTeams().get(0).setPoints(Integer.parseInt(loose));
             matchResult.getTeams().get(1).setPoints(Integer.parseInt(win));
         }
+        return matchResult;
     }
 }
