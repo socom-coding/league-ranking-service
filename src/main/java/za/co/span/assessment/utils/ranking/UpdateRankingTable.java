@@ -23,7 +23,7 @@ public class UpdateRankingTable {
         this.resultsRepository = resultsRepository;
     }
 
-    public void updatePoints(MatchResult mappedResult){
+    public void updatePoints(MatchResult mappedResult) {
         for (Team team : mappedResult.getTeams()) {
 
             List<LeagueRanking> leagueRanking = new ArrayList<>();
