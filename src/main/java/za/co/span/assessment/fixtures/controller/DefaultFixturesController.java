@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
-import za.co.span.assessment.fixtures.entity.LeagueRanking;
+import za.co.span.assessment.fixtures.entity.Team;
 import za.co.span.assessment.fixtures.service.DefaultFixturesService;
 
 import java.util.List;
@@ -38,7 +38,7 @@ public class DefaultFixturesController {
     @Secured("ROLE_GUEST")
     @ResponseBody
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    public ResponseEntity<List<LeagueRanking>> ranking() {
+    public ResponseEntity<List<Team>> ranking() {
         return new ResponseEntity<>(defaultFixtures.getOrderedRankingTable(), HttpStatus.OK);
     }
 }

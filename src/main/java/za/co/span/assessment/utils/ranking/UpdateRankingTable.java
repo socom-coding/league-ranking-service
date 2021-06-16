@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.LeagueRanking;
 import za.co.span.assessment.fixtures.entity.MatchResult;
 import za.co.span.assessment.fixtures.entity.Team;
 import za.co.span.assessment.fixtures.repository.ResultsRepository;
@@ -26,18 +25,18 @@ public class UpdateRankingTable {
     public void updatePoints(MatchResult mappedResult) {
         for (Team team : mappedResult.getTeams()) {
 
-            List<LeagueRanking> leagueRanking = new ArrayList<>();
+            List<Team> teamList = new ArrayList<>();
 
             try {
-                leagueRanking = resultsRepository.findTeam(team.getName());
+                teamList = resultsRepository.findTeam(team.getName());
             } catch (Exception e) {
                 log.error(String.valueOf(e));
             }
-            if (leagueRanking.isEmpty()) {
+            if (teamList.isEmpty()) {
                 resultsRepository.insertPoints(team);
             } else {
-                team.setId(leagueRanking.get(0).getId());
-                team.setPoints(leagueRanking.get(0).getPoints() + team.getPoints());
+                team.setId(teamList.get(0).getId());
+                team.setPoints(teamList.get(0).getPoints() + team.getPoints());
                 resultsRepository.updatePoints(team);
             }
         }

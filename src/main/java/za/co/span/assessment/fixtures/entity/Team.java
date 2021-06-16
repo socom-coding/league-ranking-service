@@ -5,10 +5,14 @@ public class Team {
     private final String name;
     private final int score;
     private int points;
+    private int position;
 
-    public Team(String name, int score) {
+    public Team(long id, String name, int score, int points, int position) {
+        this.id = id;
         this.name = name;
         this.score = score;
+        this.points = points;
+        this.position = position;
     }
 
     public long getId() {
@@ -33,5 +37,13 @@ public class Team {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

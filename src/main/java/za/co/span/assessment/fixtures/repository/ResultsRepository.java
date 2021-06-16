@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.LeagueRanking;
 import za.co.span.assessment.fixtures.entity.MatchResult;
 import za.co.span.assessment.fixtures.entity.Team;
 import za.co.span.assessment.fixtures.repository.rowmapper.LeagueRankingModelRowMapper;
@@ -39,7 +38,7 @@ public class ResultsRepository {
                         matchResult.getTeams().get(1).getName(), matchResult.getTeams().get(1).getPoints()});
     }
 
-    public List<LeagueRanking> findTeam(String team) {
+    public List<Team> findTeam(String team) {
 
         try {
             return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'", new LeagueRankingModelRowMapper());
@@ -60,7 +59,7 @@ public class ResultsRepository {
         return jdbcTemplate.update("update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'");
     }
 
-    public List<LeagueRanking> findAll() {
+    public List<Team> findAll() {
         return jdbcTemplate.query("select * from ranking", new LeagueRankingModelRowMapper());
     }
 }

@@ -1,6 +1,5 @@
 package za.co.span.assessment.utils.points;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,18 +44,14 @@ public class AllocateMatchPointsTest {
     }
 
     @Test
-    public void when_mapResultStringToObject() {
+    public void when_given_match_result_then_allocate_points_according_to_rules() {
         matchResult = allocateMatchPoints.applyRules(getMatchResult());
-        Assert.assertEquals("Lions", matchResult.getTeams().get(0).getName());
-        Assert.assertEquals(3, matchResult.getTeams().get(0).getScore());
-        Assert.assertEquals("Snakes", matchResult.getTeams().get(1).getName());
-        Assert.assertEquals(3, matchResult.getTeams().get(1).getScore());
     }
 
     private MatchResult getMatchResult() {
 
-        Team team1 = new Team("Lions", 3);
-        Team team2 = new Team("Snakes", 3);
+        Team team1 = new Team(1, "Lions", 3, 0, 0);
+        Team team2 = new Team(2, "Snakes", 3, 0, 0);
 
         List<Team> teams = new ArrayList<>();
         teams.add(team1);

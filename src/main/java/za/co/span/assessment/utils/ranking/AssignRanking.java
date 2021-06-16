@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.LeagueRanking;
+import za.co.span.assessment.fixtures.entity.Team;
 
 import java.util.List;
 
@@ -13,20 +13,20 @@ public class AssignRanking {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
-    public List<LeagueRanking> assignRank(List<LeagueRanking> leagueRankings) {
+    public List<Team> assignRank(List<Team> teams) {
         int position = 1;
 
         //TODO: cater for empty result
-        leagueRankings.get(0).setPosition(position);
+        teams.get(0).setPosition(position);
 
-        for (int i = 1; i < leagueRankings.size(); i++) {
-            if (leagueRankings.get(i).getPoints() == leagueRankings.get(i - 1).getPoints()) {
-                leagueRankings.get(i).setPosition(leagueRankings.get(i - 1).getPosition());
+        for (int i = 1; i < teams.size(); i++) {
+            if (teams.get(i).getPoints() == teams.get(i - 1).getPoints()) {
+                teams.get(i).setPosition(teams.get(i - 1).getPosition());
                 position++;
             } else {
-                leagueRankings.get(i).setPosition(++position);
+                teams.get(i).setPosition(++position);
             }
         }
-        return leagueRankings;
+        return teams;
     }
 }

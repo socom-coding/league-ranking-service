@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.LeagueRanking;
 import za.co.span.assessment.fixtures.entity.MatchResult;
+import za.co.span.assessment.fixtures.entity.Team;
 import za.co.span.assessment.fixtures.service.DefaultFixturesService;
 import za.co.span.assessment.fixtures.service.DefaultRepositoryService;
 import za.co.span.assessment.utils.mapper.MapStringToObject;
@@ -41,7 +41,7 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
     }
 
     @Override
-    public List<LeagueRanking> getOrderedRankingTable() {
+    public List<Team> getOrderedRankingTable() {
         return defaultRepositoryService.getRanking();
     }
 }

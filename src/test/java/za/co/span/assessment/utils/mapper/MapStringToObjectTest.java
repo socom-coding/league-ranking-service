@@ -39,7 +39,7 @@ public class MapStringToObjectTest {
     }
 
     @Test
-    public void when_mapResultStringToObject_the_true() {
+    public void when_mapResultStringToObject() {
         matchResult = mapStringToObject.mapResult("Lions 3, Snakes 3");
         Assert.assertEquals("Lions", matchResult.getTeams().get(0).getName());
         Assert.assertEquals(3, matchResult.getTeams().get(0).getScore());
