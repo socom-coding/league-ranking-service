@@ -1,13 +1,13 @@
-package za.co.span.assessment.fixtures.entity;
+package za.co.span.assessment.fixtures.dao;
 
-public class Team {
+public class TeamDAO {
     private long id;
-    private final String name;
-    private final int score;
+    private String name;
+    private int score;
     private int points;
     private int position;
 
-    public Team(long id, String name, int score, int points, int position) {
+    public TeamDAO(long id, String name, int score, int points, int position) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -27,8 +27,16 @@ public class Team {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getPoints() {

@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.MatchResult;
+import za.co.span.assessment.fixtures.pojo.Team;
+
+import java.util.List;
 
 @Component
 public class AllocateMatchPoints {
@@ -21,18 +23,18 @@ public class AllocateMatchPoints {
     @Value("${league.points.draw}")
     String draw;
 
-    public MatchResult applyRules(MatchResult matchResult) {
+    public List<Team> applyRules(List<Team> teamList) {
 
-        if (matchResult.getTeams().get(0).getScore() == matchResult.getTeams().get(1).getScore()) {
-            matchResult.getTeams().get(0).setPoints(Integer.parseInt(draw));
-            matchResult.getTeams().get(1).setPoints(Integer.parseInt(draw));
-        } else if (matchResult.getTeams().get(0).getScore() > matchResult.getTeams().get(1).getScore()) {
-            matchResult.getTeams().get(0).setPoints(Integer.parseInt(win));
-            matchResult.getTeams().get(1).setPoints(Integer.parseInt(loose));
+        if (teamList.get(0).getScore() == teamList.get(1).getScore()) {
+            teamList.get(0).setPoints(Integer.parseInt(draw));
+            teamList.get(1).setPoints(Integer.parseInt(draw));
+        } else if (teamList.get(0).getScore() > teamList.get(1).getScore()) {
+            teamList.get(0).setPoints(Integer.parseInt(win));
+            teamList.get(1).setPoints(Integer.parseInt(loose));
         } else {
-            matchResult.getTeams().get(0).setPoints(Integer.parseInt(loose));
-            matchResult.getTeams().get(1).setPoints(Integer.parseInt(win));
+            teamList.get(0).setPoints(Integer.parseInt(loose));
+            teamList.get(1).setPoints(Integer.parseInt(win));
         }
-        return matchResult;
+        return teamList;
     }
 }

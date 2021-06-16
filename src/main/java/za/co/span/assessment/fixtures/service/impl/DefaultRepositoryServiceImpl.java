@@ -4,8 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.MatchResult;
-import za.co.span.assessment.fixtures.entity.Team;
+import za.co.span.assessment.fixtures.dao.TeamDAO;
 import za.co.span.assessment.fixtures.repository.ResultsRepository;
 import za.co.span.assessment.fixtures.service.DefaultRepositoryService;
 import za.co.span.assessment.utils.ranking.OrderRankingTable;
@@ -29,18 +28,18 @@ public class DefaultRepositoryServiceImpl implements DefaultRepositoryService {
     }
 
     @Override
-    public void captureResults(MatchResult mappedResult) {
-        resultsRepository.insertResult(mappedResult);
-        resultsRepository.insertFixtures(mappedResult);
+    public void captureResults(List<TeamDAO> teamDAO) {
+        resultsRepository.insertResult(teamDAO);
+        resultsRepository.insertFixtures(teamDAO);
     }
 
     @Override
-    public void updateRankingTable(MatchResult mappedResult) {
-        updateRankingTable.updatePoints(mappedResult);
+    public void updateRankingTable(List<TeamDAO> teamDAO) {
+        updateRankingTable.updatePoints(teamDAO);
     }
 
     @Override
-    public List<Team> getRanking() {
+    public List<TeamDAO> getRanking() {
         return orderRankingTable.getOrderedRankingTable();
     }
 }

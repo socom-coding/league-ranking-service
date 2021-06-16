@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.MatchResult;
-import za.co.span.assessment.fixtures.entity.Team;
-import za.co.span.assessment.fixtures.repository.rowmapper.LeagueRankingModelRowMapper;
+import za.co.span.assessment.fixtures.dao.TeamDAO;
+import za.co.span.assessment.fixtures.repository.rowmapper.TeamDAORowMapper;
 
 import java.util.List;
 
@@ -24,42 +23,41 @@ public class ResultsRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public int insertResult(MatchResult matchResult) {
+    public int insertResult(List<TeamDAO> teamDAO) {
         return jdbcTemplate.update(
                 "insert into fixtures ( team_1_name, team_1_score, team_2_name, team_2_score) " + "values(?, ?, ?, ?)",
-                new Object[]{matchResult.getTeams().get(0).getName(), matchResult.getTeams().get(0).getScore(),
-                        matchResult.getTeams().get(1).getName(), matchResult.getTeams().get(1).getScore()});
+                new Object[]{teamDAO.get(0).getName(), teamDAO.get(0).getScore(),
+                        teamDAO.get(1).getName(), teamDAO.get(1).getScore()});
     }
 
-    public int insertFixtures(MatchResult matchResult) {
+    public int insertFixtures(List<TeamDAO> teamDAO) {
         return jdbcTemplate.update(
                 "insert into points ( team_1_name, team_1_points, team_2_name, team_2_points) " + "values(?, ?, ?, ?)",
-                new Object[]{matchResult.getTeams().get(0).getName(), matchResult.getTeams().get(0).getPoints(),
-                        matchResult.getTeams().get(1).getName(), matchResult.getTeams().get(1).getPoints()});
+                new Object[]{teamDAO.get(0).getName(), teamDAO.get(0).getPoints(),
+                        teamDAO.get(1).getName(), teamDAO.get(1).getPoints()});
     }
 
-    public List<Team> findTeam(String team) {
+    public List<TeamDAO> findTeam(String team) {
 
         try {
-            return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'", new LeagueRankingModelRowMapper());
+            return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'", new TeamDAORowMapper());
         } catch (Exception e) {
             log.error(String.valueOf(e));
         }
         return null;
-
     }
 
-    public int insertPoints(Team team) {
+    public int insertPoints(TeamDAO team) {
         return jdbcTemplate.update(
                 "insert into ranking (team, points) " + "values(?, ?)",
                 new Object[]{team.getName(), team.getPoints()});
     }
 
-    public int updatePoints(Team team) {
+    public int updatePoints(TeamDAO team) {
         return jdbcTemplate.update("update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'");
     }
 
-    public List<Team> findAll() {
-        return jdbcTemplate.query("select * from ranking", new LeagueRankingModelRowMapper());
+    public List<TeamDAO> findAll() {
+        return jdbcTemplate.query("select * from ranking", new TeamDAORowMapper());
     }
 }

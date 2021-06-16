@@ -1,14 +1,13 @@
 package za.co.span.assessment.fixtures.service;
 
-import za.co.span.assessment.fixtures.entity.MatchResult;
-import za.co.span.assessment.fixtures.entity.Team;
+import za.co.span.assessment.fixtures.dao.TeamDAO;
 
 import java.util.List;
 
 public interface DefaultRepositoryService {
-    void captureResults(MatchResult mappedResult);
+    void captureResults(List<TeamDAO> teamDAO);
 
-    void updateRankingTable(MatchResult mappedResult);
+    void updateRankingTable(List<TeamDAO> teamDAO);
 
-    List<Team> getRanking();
+    List<TeamDAO> getRanking();
 }

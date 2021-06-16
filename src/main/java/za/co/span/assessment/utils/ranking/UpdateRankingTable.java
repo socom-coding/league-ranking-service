@@ -4,8 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.MatchResult;
-import za.co.span.assessment.fixtures.entity.Team;
+import za.co.span.assessment.fixtures.dao.TeamDAO;
 import za.co.span.assessment.fixtures.repository.ResultsRepository;
 
 import java.util.ArrayList;
@@ -22,22 +21,22 @@ public class UpdateRankingTable {
         this.resultsRepository = resultsRepository;
     }
 
-    public void updatePoints(MatchResult mappedResult) {
-        for (Team team : mappedResult.getTeams()) {
+    public void updatePoints(List<TeamDAO> teamDAOList) {
+        for (TeamDAO teamDAO : teamDAOList) {
 
-            List<Team> teamList = new ArrayList<>();
+            List<TeamDAO> teamList = new ArrayList<>();
 
             try {
-                teamList = resultsRepository.findTeam(team.getName());
+                teamList = resultsRepository.findTeam(teamDAO.getName());
             } catch (Exception e) {
                 log.error(String.valueOf(e));
             }
             if (teamList.isEmpty()) {
-                resultsRepository.insertPoints(team);
+                resultsRepository.insertPoints(teamDAO);
             } else {
-                team.setId(teamList.get(0).getId());
-                team.setPoints(teamList.get(0).getPoints() + team.getPoints());
-                resultsRepository.updatePoints(team);
+                teamDAO.setId(teamList.get(0).getId());
+                teamDAO.setPoints(teamList.get(0).getPoints() + teamDAO.getPoints());
+                resultsRepository.updatePoints(teamDAO);
             }
         }
     }

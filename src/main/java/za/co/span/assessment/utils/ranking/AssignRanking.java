@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
-import za.co.span.assessment.fixtures.entity.Team;
+import za.co.span.assessment.fixtures.dao.TeamDAO;
 
 import java.util.List;
 
@@ -13,20 +13,20 @@ public class AssignRanking {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
-    public List<Team> assignRank(List<Team> teams) {
+    public List<TeamDAO> assignRank(List<TeamDAO> teamDAOList) {
         int position = 1;
 
         //TODO: cater for empty result
-        teams.get(0).setPosition(position);
+        teamDAOList.get(0).setPosition(position);
 
-        for (int i = 1; i < teams.size(); i++) {
-            if (teams.get(i).getPoints() == teams.get(i - 1).getPoints()) {
-                teams.get(i).setPosition(teams.get(i - 1).getPosition());
+        for (int i = 1; i < teamDAOList.size(); i++) {
+            if (teamDAOList.get(i).getPoints() == teamDAOList.get(i - 1).getPoints()) {
+                teamDAOList.get(i).setPosition(teamDAOList.get(i - 1).getPosition());
                 position++;
             } else {
-                teams.get(i).setPosition(++position);
+                teamDAOList.get(i).setPosition(++position);
             }
         }
-        return teams;
+        return teamDAOList;
     }
 }
