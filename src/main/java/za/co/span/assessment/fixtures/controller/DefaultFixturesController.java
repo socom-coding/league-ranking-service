@@ -32,7 +32,7 @@ public class DefaultFixturesController {
     @RequestMapping(value = "/result/{result}", method = RequestMethod.POST)
     public ResponseEntity<String> captureResult(@PathVariable("result") String result) {
         defaultFixtures.processResult(result);
-        return new ResponseEntity("Results Captured", HttpStatus.CREATED);
+        return new ResponseEntity("Results Captured", HttpStatus.OK);
     }
 
     @Secured("ROLE_GUEST")

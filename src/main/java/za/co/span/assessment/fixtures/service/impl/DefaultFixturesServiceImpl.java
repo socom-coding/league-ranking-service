@@ -32,12 +32,15 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
     }
 
     @Override
-    public void processResult(String matchResult) {
+    public String processResult(String matchResult) {
+        //TODO: try catch
         mappedResult = new MatchResult();
         mappedResult = mapStringToObject.mapResult(matchResult);
         allocateMatchPoints.applyRules(mappedResult);
         defaultRepositoryService.captureResults(mappedResult);
         defaultRepositoryService.updateRankingTable(mappedResult);
+
+        return "";
     }
 
     @Override
