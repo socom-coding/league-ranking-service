@@ -12,7 +12,7 @@ import java.util.List;
 public interface TeamMapper {
     TeamMapper INSTANCE = Mappers.getMapper(TeamMapper.class);
 
-    TeamDTO teamToTeamDTO(TeamDAO teamDAO);
+    TeamDTO teamDAOToTeamDTO(TeamDAO teamDAO);
 
     TeamDAO teamToTeamDAO(Team team);
 
