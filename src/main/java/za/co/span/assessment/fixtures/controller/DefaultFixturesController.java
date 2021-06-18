@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/fixtures")
 public class DefaultFixturesController {
 
-    //TODO: ADD/Instrumentation Metrics - Counter - Gauge - Tracing
+    //TODO: ADD/Instrumentation Metrics - Counter - Gauge - Tracing - Prometheus
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 

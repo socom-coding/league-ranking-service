@@ -23,6 +23,8 @@ public class ResultsRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //TODO: Exception handling and clean up
+
     public int insertResult(List<TeamDAO> teamDAO) {
         return jdbcTemplate.update(
                 "insert into fixtures ( team_1_name, team_1_score, team_2_name, team_2_score) " + "values(?, ?, ?, ?)",
