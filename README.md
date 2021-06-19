@@ -4,11 +4,15 @@ The league-ranking-service is a springboot microservice that exposes two enpoint
 
     1: Capture Results
     2: View Ranking Table
+    
+NOTE:
+
+    The client and service package builds must correspond to map to the basepaths of the environments.
   
   dev profile:
   
     Note: to run the dev profile, build using the following command:
-      mvn package -P dev or,
+      mvn clean install -P dev or,
       specify dev in the run configuration "Active Profiles"
     
   API:
@@ -51,7 +55,7 @@ The league-ranking-service is a springboot microservice that exposes two enpoint
   qa profile:
   
     Note: to run the dev profile, build using the following command:
-      mvn package -P qa or,
+      mvn clean install -P qa or,
       specify qa in the run configuration "Active Profiles"
     
   API:
