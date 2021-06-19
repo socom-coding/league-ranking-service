@@ -1,5 +1,9 @@
 # league-ranking-service
 
+    #SpringBoot Microservice
+    #Postman testing collection
+    #Postman DEV and QA environments
+
 The league-ranking-service is a springboot microservice that exposes two enpoints:
 
     1: Capture Results
