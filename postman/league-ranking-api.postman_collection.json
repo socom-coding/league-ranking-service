@@ -1,0 +1,904 @@
+{
+	"info": {
+		"_postman_id": "077fbcdd-60cf-417b-a369-2ca5800e532d",
+		"name": "league-ranking-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JSON FromController",
+			"item": [
+				{
+					"name": "Get Controller Swagger JSON",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9009/api/v2/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"v2",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fixtures",
+			"item": [
+				{
+					"name": "Lions vs Snakes",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 3, Snakes 3",
+							"host": [
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+							],
+							"path": [
+								"result",
+								"Lions 3, Snakes 3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarantulas vs FC Awsome",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9009/api/fixtures/result/Tarantulas 1, FC Awsome 0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"fixtures",
+								"result",
+								"Tarantulas 1, FC Awsome 0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lions vs FC Awsome",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9009/api/fixtures/result/Lions 1, FC Awsome 1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"fixtures",
+								"result",
+								"Lions 1, FC Awsome 1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tarantulas vs Snakes",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9009/api/fixtures/result/Tarantulas 3, Snakes 1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"fixtures",
+								"result",
+								"Tarantulas 3, Snakes 1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lions vs Grouches",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9009/api/fixtures/result/Lions 4, Grouches 0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9009",
+							"path": [
+								"api",
+								"fixtures",
+								"result",
+								"Lions 4, Grouches 0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Ranking Table",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd1",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "guest",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/ranking",
+							"host": [
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+							],
+							"path": [
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "actuator",
+			"item": [
+				{
+					"name": "Metrics",
+					"item": [
+						{
+							"name": "JDBC",
+							"item": [
+								{
+									"name": "JDBC Connection Active",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/jdbc.connections.active",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"jdbc.connections.active"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "JDBC Connection Idle",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/jdbc.connections.idle",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"jdbc.connections.idle"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "JDBC Connection Max",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/jdbc.connections.max",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"jdbc.connections.max"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "JDBC Connection Min",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/jdbc.connections.min",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"jdbc.connections.min"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tomcat",
+							"item": [
+								{
+									"name": "Tomcat Session Active Current",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.active.current",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.active.current"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tomcat Session Active Max",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.active.max",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.active.max"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tomcat Session Alive Max",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.alive.max",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.alive.max"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tomcat Session Created",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.created",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.created"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tomcat Session Expired",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.expired",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.expired"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tomcat Session Rejected",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/tomcat.sessions.rejected",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"tomcat.sessions.rejected"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Server",
+							"item": [
+								{
+									"name": "Server Request",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "p@55w0rd",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9008/actuator/metrics/http.server.requests",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9008",
+											"path": [
+												"actuator",
+												"metrics",
+												"http.server.requests"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Available Metrics",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9008/actuator/metrics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9008",
+									"path": [
+										"actuator",
+										"metrics"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tracing",
+					"item": [
+						{
+							"name": "Tracing",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9008/actuator/httptrace",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9008",
+									"path": [
+										"actuator",
+										"httptrace"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Info",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9008/actuator/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9008",
+							"path": [
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd1",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "guest",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9008/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9008",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Env",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9008/actuator/env",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9008",
+							"path": [
+								"actuator",
+								"env"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Shutdown",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p@55w0rd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9008/actuator/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9008",
+							"path": [
+								"actuator",
+								"shutdown"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
