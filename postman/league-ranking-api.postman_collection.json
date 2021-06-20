@@ -29,14 +29,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9009/api/v2/api-docs",
-							"protocol": "http",
+							"raw": "{{protocol}}{{host}}{{context}}/v2/api-docs",
 							"host": [
-								"localhost"
+								"{{protocol}}{{host}}{{context}}"
 							],
-							"port": "9009",
 							"path": [
-								"api",
 								"v2",
 								"api-docs"
 							]
@@ -50,7 +47,323 @@
 			"name": "fixtures",
 			"item": [
 				{
+					"name": "Test Ranking Table Order",
+					"item": [
+						{
+							"name": "Lions vs Snakes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 3, Snakes 3",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"result",
+										"Lions 3, Snakes 3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tarantulas vs FC Awsome",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Tarantulas 1, FC Awsome 0",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"result",
+										"Tarantulas 1, FC Awsome 0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lions vs FC Awsome",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 1, FC Awsome 1",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"result",
+										"Lions 1, FC Awsome 1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tarantulas vs Snakes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Tarantulas 3, Snakes 1",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"result",
+										"Tarantulas 3, Snakes 1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lions vs Grouches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 4, Grouches 0",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"result",
+										"Lions 4, Grouches 0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Ranking Table",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Ranking table order\", () => {\r",
+											"  const responseJson = pm.response.json();\r",
+											"  pm.expect(responseJson[0].name).to.eql(\"Tarantulas\");\r",
+											"  pm.expect(responseJson[0].points).to.eql(6);\r",
+											"  pm.expect(responseJson[0].position).to.eql(1);\r",
+											"\r",
+											"  pm.expect(responseJson[1].name).to.eql(\"Lions\");\r",
+											"  pm.expect(responseJson[1].points).to.eql(5);\r",
+											"  pm.expect(responseJson[1].position).to.eql(2);\r",
+											"\r",
+											"  pm.expect(responseJson[2].name).to.eql(\"FC Awsome\");\r",
+											"  pm.expect(responseJson[2].points).to.eql(1);\r",
+											"  pm.expect(responseJson[2].position).to.eql(3);\r",
+											"\r",
+											"  pm.expect(responseJson[3].name).to.eql(\"Snakes\");\r",
+											"  pm.expect(responseJson[3].points).to.eql(1);\r",
+											"  pm.expect(responseJson[3].position).to.eql(3);\r",
+											"\r",
+											"  pm.expect(responseJson[4].name).to.eql(\"Grouches\");\r",
+											"  pm.expect(responseJson[4].points).to.eql(0);\r",
+											"  pm.expect(responseJson[4].position).to.eql(5);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "p@55w0rd1",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "guest",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/ranking",
+									"host": [
+										"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
+									],
+									"path": [
+										"ranking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Lions vs Snakes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -84,6 +397,19 @@
 				},
 				{
 					"name": "Tarantulas vs FC Awsome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -103,15 +429,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9009/api/fixtures/result/Tarantulas 1, FC Awsome 0",
-							"protocol": "http",
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Tarantulas 1, FC Awsome 0",
 							"host": [
-								"localhost"
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
 							],
-							"port": "9009",
 							"path": [
-								"api",
-								"fixtures",
 								"result",
 								"Tarantulas 1, FC Awsome 0"
 							]
@@ -121,6 +443,19 @@
 				},
 				{
 					"name": "Lions vs FC Awsome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -140,15 +475,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9009/api/fixtures/result/Lions 1, FC Awsome 1",
-							"protocol": "http",
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 1, FC Awsome 1",
 							"host": [
-								"localhost"
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
 							],
-							"port": "9009",
 							"path": [
-								"api",
-								"fixtures",
 								"result",
 								"Lions 1, FC Awsome 1"
 							]
@@ -158,6 +489,19 @@
 				},
 				{
 					"name": "Tarantulas vs Snakes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -177,15 +521,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9009/api/fixtures/result/Tarantulas 3, Snakes 1",
-							"protocol": "http",
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Tarantulas 3, Snakes 1",
 							"host": [
-								"localhost"
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
 							],
-							"port": "9009",
 							"path": [
-								"api",
-								"fixtures",
 								"result",
 								"Tarantulas 3, Snakes 1"
 							]
@@ -195,6 +535,19 @@
 				},
 				{
 					"name": "Lions vs Grouches",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -214,15 +567,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9009/api/fixtures/result/Lions 4, Grouches 0",
-							"protocol": "http",
+							"raw": "{{protocol}}{{host}}{{context}}{{league-ranking-service}}/result/Lions 4, Grouches 0",
 							"host": [
-								"localhost"
+								"{{protocol}}{{host}}{{context}}{{league-ranking-service}}"
 							],
-							"port": "9009",
 							"path": [
-								"api",
-								"fixtures",
 								"result",
 								"Lions 4, Grouches 0"
 							]
@@ -232,6 +581,19 @@
 				},
 				{
 					"name": "View Ranking Table",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
