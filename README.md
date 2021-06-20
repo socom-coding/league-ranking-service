@@ -10,6 +10,14 @@
     QA - "qa" profile requires a MySQL database and the inserted scripts needs to be ran to create the tables and the datasource config in the application-qa.properties need                to be changed where necesary.
     
     PROD - "prod" profile requires prod environment setup and config to be made in the application-prod.properties file.
+    
+    To run from ide, you might have to add the springboot start application to the run configuration:
+        -Add Configuration
+        -Add New Configuration
+        -SpringBoot
+        -Name: StartApplication
+        -Main Class za.co.span.assessment.StartApplication
+        -Active Profile dev or qa
 
 The league-ranking-service is a springboot microservice that exposes two enpoints:
 
