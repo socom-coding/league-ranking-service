@@ -85,15 +85,7 @@
             <version>1.4.2.Final</version>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.mapstruct</groupId>-->
-<!--            <artifactId>mapstruct-jdk8</artifactId>-->
-<!--            <version>1.4.2.Final</version>-->
-<!--        </dependency>-->
-
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor &ndash;&gt;-->
+        <!-- MAPSTRUCT -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>

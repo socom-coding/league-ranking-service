@@ -16,7 +16,6 @@ public class AssignRanking {
     public List<TeamDAO> assignRank(List<TeamDAO> teamDAOList) {
         int position = 1;
 
-        //TODO: cater for empty result
         teamDAOList.get(0).setPosition(position);
 
         for (int i = 1; i < teamDAOList.size(); i++) {
