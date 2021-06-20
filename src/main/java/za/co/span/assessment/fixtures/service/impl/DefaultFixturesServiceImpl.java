@@ -33,7 +33,6 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
 
     @Override
     public String processResult(String matchResult) {
-        //TODO: try catch
         List<TeamDAO> teamDAOList = TeamMapper.INSTANCE.mapToDAO(allocateMatchPoints.applyRules(mapStringToObject.mapResult(matchResult)));
         defaultRepositoryService.captureResults(teamDAOList);
         defaultRepositoryService.updateRankingTable(teamDAOList);

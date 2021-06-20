@@ -24,17 +24,29 @@ public class ResultsRepository {
     }
 
     public int insertResult(List<TeamDAO> teamDAO) {
-        return jdbcTemplate.update(
-                "insert into fixtures ( team_1_name, team_1_score, team_2_name, team_2_score) " + "values(?, ?, ?, ?)",
-                new Object[]{teamDAO.get(0).getName(), teamDAO.get(0).getScore(),
-                        teamDAO.get(1).getName(), teamDAO.get(1).getScore()});
+        try {
+            return jdbcTemplate.update(
+                    "insert into fixtures ( team_1_name, team_1_score, team_2_name, team_2_score) " + "values(?, ?, ?, ?)",
+                    teamDAO.get(0).getName(), teamDAO.get(0).getScore(),
+                    teamDAO.get(1).getName(), teamDAO.get(1).getScore());
+        } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
+            log.error(String.valueOf(e));
+        }
+        return 0;
     }
 
     public int insertFixtures(List<TeamDAO> teamDAO) {
-        return jdbcTemplate.update(
-                "insert into points ( team_1_name, team_1_points, team_2_name, team_2_points) " + "values(?, ?, ?, ?)",
-                new Object[]{teamDAO.get(0).getName(), teamDAO.get(0).getPoints(),
-                        teamDAO.get(1).getName(), teamDAO.get(1).getPoints()});
+        try {
+            return jdbcTemplate.update(
+                    "insert into points ( team_1_name, team_1_points, team_2_name, team_2_points) " + "values(?, ?, ?, ?)",
+                    teamDAO.get(0).getName(), teamDAO.get(0).getPoints(),
+                    teamDAO.get(1).getName(), teamDAO.get(1).getPoints());
+        } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
+            log.error(String.valueOf(e));
+        }
+        return 0;
     }
 
     public List<TeamDAO> findTeam(String team) {
@@ -42,22 +54,43 @@ public class ResultsRepository {
         try {
             return jdbcTemplate.query("select * from ranking where team=" + "\'" + team + "\'", new TeamDAORowMapper());
         } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
             log.error(String.valueOf(e));
         }
         return null;
     }
 
     public int insertPoints(TeamDAO team) {
-        return jdbcTemplate.update(
-                "insert into ranking (team, points) " + "values(?, ?)",
-                new Object[]{team.getName(), team.getPoints()});
+        try {
+            return jdbcTemplate.update(
+                    "insert into ranking (team, points) " + "values(?, ?)",
+                    team.getName(), team.getPoints());
+        } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
+            log.error(String.valueOf(e));
+        }
+        return 0;
     }
 
     public int updatePoints(TeamDAO team) {
-        return jdbcTemplate.update("update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'");
+        try {
+            return jdbcTemplate.update(
+                    "update ranking set points =" + "\'" + team.getPoints() + "\'" + "where id =" + "\'" + team.getId() + "\'");
+        } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
+            log.error(String.valueOf(e));
+        }
+        return 0;
     }
 
     public List<TeamDAO> findAll() {
-        return jdbcTemplate.query("select * from ranking", new TeamDAORowMapper());
+        try {
+            return jdbcTemplate.query(
+                    "select * from ranking", new TeamDAORowMapper());
+        } catch (Exception e) {
+            log.error("Exception occurred in class {}", this.getClass());
+            log.error(String.valueOf(e));
+        }
+        return null;
     }
 }
