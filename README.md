@@ -12,6 +12,7 @@ The league-ranking-service is a springboot microservice that exposes two enpoint
 NOTE:
 
     The client and service package builds must correspond to map to the basepaths of the environments.
+    i.e -P dev or -P qa or -P prod
   
   dev profile:
   
@@ -22,7 +23,7 @@ NOTE:
   API:
   
       basepath: localhost:9009/api/fixtures
-      capture result: /result/{result} - the path variable take a string i.e "Lions 3, Snakes 3"
+      capture result: /result/{result} - the path variable takes a string i.e "Lions 3, Snakes 3"
       view ranking: /ranking
       
   Web security:
@@ -39,7 +40,7 @@ NOTE:
     
   Database:
   
-      Embedded h2 database - Annotated with "dev" in order to only run in dev environment and not i.e qa or prod.
+      Embedded h2 database - Annotated with @Profile("dev") in order to only run in dev environment and not i.e qa or prod.
       basepath: http://localhost:9009/api/console
       Login with admin or guest 
       JDBC Url: jdbc:h2:mem:testdb
@@ -58,7 +59,7 @@ NOTE:
       
   qa profile:
   
-    Note: to run the dev profile, build using the following command:
+    Note: to run the qa profile, build using the following command:
       mvn clean install -P qa or,
       specify qa in the run configuration "Active Profiles"
     
@@ -82,7 +83,7 @@ NOTE:
     
   Database:
   
-      MySQL - To use this data source you will have to create a MySQL Instance conforming to the below setup or replace the current valuse with your current MySQL data source.
+      MySQL - To use this data source you will have to create a MySQL Instance conforming to the below config or replace the current valuse with your current MySQL data source.
       #MySQL Data Source
       spring.jpa.generate-ddl=false
       spring.datasource.url=jdbc:mysql://localhost:3306/league_ranking_qa
