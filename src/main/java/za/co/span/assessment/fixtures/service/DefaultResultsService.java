@@ -4,8 +4,6 @@ import za.co.span.assessment.fixtures.dto.TeamDTO;
 
 import java.util.List;
 
-public interface DefaultFixturesService {
+public interface DefaultResultsService {
     String processResult(String matchResult);
-
-    List<TeamDTO> getOrderedRankingTable();
 }

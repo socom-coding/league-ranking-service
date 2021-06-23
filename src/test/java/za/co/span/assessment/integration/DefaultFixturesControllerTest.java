@@ -10,7 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
 import za.co.span.assessment.fixtures.dto.TeamDTO;
-import za.co.span.assessment.fixtures.service.DefaultFixturesService;
+import za.co.span.assessment.fixtures.service.DefaultResultsService;
+import za.co.span.assessment.fixtures.service.DefaultViewRankingTableService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +34,21 @@ public class DefaultFixturesControllerTest {
     private DefaultFixturesController defaultFixturesController;
 
     @MockBean
-    private DefaultFixturesService defaultFixturesService;
+    private DefaultResultsService defaultResultsService;
+
+    @MockBean
+    private DefaultViewRankingTableService defaultViewRankingTableService;
 
     @Test
     public void test_when_DefaultFixturesController_injected_thenNotNull() throws Exception {
         assertThat(defaultFixturesController).isNotNull();
+        assertThat(defaultViewRankingTableService).isNotNull();
     }
 
     @Test
     public void test_authorization_when_processResult_then_correct_response_200() throws Exception {
 
-        given(defaultFixturesService.processResult("Lions 3, Snakes 3")).willReturn("Result Captured");
+        given(defaultResultsService.processResult("Lions 3, Snakes 3")).willReturn("Result Captured");
 
         mockMvc.perform(post("/fixtures/result/{result}", "Lions 3, Snakes 3")
                 .with(httpBasic("admin", "p@55w0rd"))
@@ -54,7 +59,7 @@ public class DefaultFixturesControllerTest {
     @Test
     public void test_authorization_when_processResult_then_correct_response_401() throws Exception {
 
-        given(defaultFixturesService.processResult("Lions 3, Snakes 3")).willReturn("Result Captured");
+        given(defaultResultsService.processResult("Lions 3, Snakes 3")).willReturn("Result Captured");
 
         mockMvc.perform(post("/fixtures/result/{result}", "Lions 3, Snakes 3")
                 .with(httpBasic("admin", "password"))
@@ -65,7 +70,7 @@ public class DefaultFixturesControllerTest {
     @Test
     public void test_authorization_when_getOrderedRankingTable_then_correct_response_200() throws Exception {
 
-        given(defaultFixturesService.getOrderedRankingTable()).willReturn(getSortedPointsList());
+        given(defaultViewRankingTableService.getOrderedRankingTable()).willReturn(getSortedPointsList());
 
         mockMvc.perform(get("/fixtures/ranking")
                 .with(httpBasic("admin", "p@55w0rd"))
@@ -76,7 +81,7 @@ public class DefaultFixturesControllerTest {
     @Test
     public void test_authorization_when_getOrderedRankingTable_then_correct_response_401() throws Exception {
 
-        given(defaultFixturesService.getOrderedRankingTable()).willReturn(getSortedPointsList());
+        given(defaultViewRankingTableService.getOrderedRankingTable()).willReturn(getSortedPointsList());
 
         mockMvc.perform(get("/fixtures/ranking")
                 .with(httpBasic("guest", "p@55w0rd"))

@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
 import za.co.span.assessment.fixtures.dao.TeamDAO;
-import za.co.span.assessment.fixtures.dto.TeamDTO;
-import za.co.span.assessment.fixtures.service.DefaultFixturesService;
+import za.co.span.assessment.fixtures.service.DefaultResultsService;
 import za.co.span.assessment.fixtures.service.DefaultRepositoryService;
 import za.co.span.assessment.utils.mapper.MapStringToObject;
 import za.co.span.assessment.utils.mapper.TeamMapper;
@@ -16,7 +15,7 @@ import za.co.span.assessment.utils.points.AllocateMatchPoints;
 import java.util.List;
 
 @Service
-public class DefaultFixturesServiceImpl implements DefaultFixturesService {
+public class DefaultResultsServiceImpl implements DefaultResultsService {
 
     private static final Logger log = LoggerFactory.getLogger(DefaultFixturesController.class);
 
@@ -25,7 +24,7 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
     private DefaultRepositoryService defaultRepositoryService;
 
     @Autowired
-    public DefaultFixturesServiceImpl(MapStringToObject mapStringToObject, AllocateMatchPoints allocateMatchPoints, DefaultRepositoryService defaultRepositoryService) {
+    public DefaultResultsServiceImpl(MapStringToObject mapStringToObject, AllocateMatchPoints allocateMatchPoints, DefaultRepositoryService defaultRepositoryService) {
         this.mapStringToObject = mapStringToObject;
         this.allocateMatchPoints = allocateMatchPoints;
         this.defaultRepositoryService = defaultRepositoryService;
@@ -38,10 +37,5 @@ public class DefaultFixturesServiceImpl implements DefaultFixturesService {
         defaultRepositoryService.updateRankingTable(teamDAOList);
 
         return "";
-    }
-
-    @Override
-    public List<TeamDTO> getOrderedRankingTable() {
-        return TeamMapper.INSTANCE.mapToDTO(defaultRepositoryService.getRanking());
     }
 }
