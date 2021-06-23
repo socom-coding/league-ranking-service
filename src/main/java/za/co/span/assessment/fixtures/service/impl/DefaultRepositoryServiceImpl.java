@@ -2,6 +2,7 @@ package za.co.span.assessment.fixtures.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.span.assessment.fixtures.controller.DefaultFixturesController;
 import za.co.span.assessment.fixtures.dao.TeamDAO;
@@ -21,6 +22,7 @@ public class DefaultRepositoryServiceImpl implements DefaultRepositoryService {
     private UpdateRankingTable updateRankingTable;
     private OrderRankingTable orderRankingTable;
 
+    @Autowired
     public DefaultRepositoryServiceImpl(ResultsRepository resultsRepository, UpdateRankingTable updateRankingTable, OrderRankingTable orderRankingTable) {
         this.resultsRepository = resultsRepository;
         this.updateRankingTable = updateRankingTable;
